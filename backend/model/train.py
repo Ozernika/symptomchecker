@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 
-data = pd.read_csv("../data/dataset.csv")
+data = pd.read_csv("../data/trichology_dataset.csv")
 
 X = data.drop("disease", axis=1)
 y = data["disease"]
