@@ -5,6 +5,8 @@ import {
   Box, Card, CardContent, TextField,
   Button, Typography, Tabs, Tab, Alert
 } from "@mui/material";
+import API from "./api";
+
 
 const AuthForm = () => {
   const { login } = useAuth();
@@ -13,12 +15,11 @@ const AuthForm = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
   const handleSubmit = async () => {
     setError(""); setSuccess("");
-    const url = tab === 0
-      ? "http://127.0.0.1:5000/login"
-      : "http://127.0.0.1:5000/register";
+      const url = tab === 0
+       ? `${API}/login`
+       : `${API}/register`;
     try {
       const res = await axios.post(url, { email, password });
       if (tab === 0) {

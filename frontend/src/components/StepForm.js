@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Button, Card, CardContent, Typography, Box, LinearProgress } from "@mui/material";
 import { Activity } from "lucide-react";
+import API from "./api";
 
 const questions = [
   {
@@ -72,7 +73,7 @@ const StepForm = ({ setResult }) => {
   const submitData = async (data) => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post("http://127.0.0.1:5000/predict", data, {
+      const res = await axios.post("${API}/predict", data, {
         headers: { Authorization: token ? `Bearer ${token}` : "" }
       });
       setResult(res.data);

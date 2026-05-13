@@ -7,13 +7,14 @@ import {
   LinearProgress, Chip
 } from "@mui/material";
 import { ChevronDown } from "lucide-react";
+import API from "./api";
 
 const History = () => {
   const { token } = useAuth();
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/history", {
+    axios.get("${API}/history", {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => setHistory(res.data));
   }, [token]);
