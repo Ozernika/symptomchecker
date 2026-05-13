@@ -1,12 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from utils.predictor import predict_disease
+from backend.utils.predictor import predict_disease
 import sqlite3, bcrypt, jwt, datetime, os
+import sklearn
+print(sklearn.__version__)
 
 app = Flask(__name__)
 CORS(app)
 SECRET_KEY = os.environ.get("SECRET_KEY", "your-secret-key")
-DB_PATH = "database.db"
+DB_PATH = os.path.join(os.path.dirname(__file__), "database.db")
 
 def get_db():
     conn = sqlite3.connect(DB_PATH)
