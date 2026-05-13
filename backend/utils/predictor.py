@@ -1,6 +1,12 @@
 import pickle
 import pandas as pd
 import numpy as np
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(BASE_DIR, "../model/model.pkl")
+encoder_path = os.path.join(BASE_DIR, "../model/encoder.pkl")
 
 RECOMMENDATIONS = {
 
@@ -94,10 +100,10 @@ DISEASE_NAMES = {
     "inconclusive": "Требуется дополнительная оценка"
 }
 
-with open("model/model.pkl", "rb") as f:
+with open(model_path, "rb") as f:
     model = pickle.load(f)
 
-with open("model/encoder.pkl", "rb") as f:
+with open(encoder_path, "rb") as f:
     le = pickle.load(f)
 
 FEATURES = [
