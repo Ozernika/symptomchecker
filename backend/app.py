@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from backend.utils.predictor import predict_disease
+from utils.predictor import predict_disease
 import sqlite3, bcrypt, jwt, datetime, os
 import sklearn
 print(sklearn.__version__)
