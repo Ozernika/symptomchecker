@@ -73,7 +73,7 @@ const StepForm = ({ setResult }) => {
   const submitData = async (data) => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post("${API}/predict", data, {
+      const res = await axios.post(`${API}/predict`, data, {
         headers: { Authorization: token ? `Bearer ${token}` : "" }
       });
       setResult(res.data);

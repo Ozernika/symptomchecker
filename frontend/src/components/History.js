@@ -14,7 +14,7 @@ const History = () => {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
-    axios.get("${API}/history", {
+    axios.get(`${API}/history`, {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => setHistory(res.data));
   }, [token]);
